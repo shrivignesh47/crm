@@ -1,0 +1,133 @@
+{
+  "annotations": {
+    "changelogDate": "20240727091651"
+  },
+  "dto": "no",
+  "fields": [
+    {
+      "fieldName": "first_name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "last_name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "company",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "fax",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "website",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lead_source",
+      "fieldType": "source",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "NONE,COLD_CALL,ADVERTISEMENT,ONLINE_STORE,EXTERNAL_REFERENCE,PARTNER,PUBLIC_RELATION,CHAT,INSTAGRAM,FACEBOOK,WEB_RESEARCH"
+    },
+    {
+      "fieldName": "lead_status",
+      "fieldType": "status",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ATTEMPTED_TO_CONTACT,CONTACT_IN_FUTURE,CONTACTED,JUNK_LEAD,LOST_LEAD,NOT_CONTRACTED,PRE_QUALIFIED,NOT_QUALIFIED,CANCELLED"
+    },
+    {
+      "fieldName": "industry",
+      "fieldType": "industry",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ASP,DATA_TELECOM,ERP,GOVERNMENT_MILITARY,LARGE_ENTERPRISE,MANAGEMENT_ERP,MANAGEMENT_ISV,MSP,NON_MANAGEMENT_ISV,SERVICE_PROVIDER,WIRELESS_INDUSTRY,SMALL_MEDIUM_ENTERPRISE,STORAGE_EQUIPMENT"
+    },
+    {
+      "fieldName": "no_of_emp",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "annual_revenue",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "rating",
+      "fieldType": "rating",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ACCIQUED,ACTIVE,MARKET_FAILED,PROJECT_CANCELLED,SHUTDOWN"
+    },
+    {
+      "fieldName": "social_media",
+      "fieldType": "social",
+      "fieldValues": "INSTAGRAM,FACEBOOK,TWITTER"
+    },
+    {
+      "fieldName": "media_handle_id",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "street",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique", "minlength", "maxlength", "pattern"],
+      "fieldValidateRulesMaxlength": 20,
+      "fieldValidateRulesMinlength": "0",
+      "fieldValidateRulesPattern": "^[a-zA-Z0-9]*$"
+    },
+    {
+      "fieldName": "state",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "zipcode",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "country",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": []
+    },
+    {
+      "fieldName": "lead_image",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Lead",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}
