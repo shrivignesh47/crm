@@ -1,0 +1,19 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    background-color: #eaeaea;
+  
+    h1 {
+      font-size: 3rem;
+      color: #000000;
+    }
+  
+    p {
+      font-size: 1.5rem;
+      color: #000000;
+    }
+  }
+  

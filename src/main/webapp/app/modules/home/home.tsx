@@ -1,87 +1,82 @@
 import './home.scss';
-
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-import { Row, Col, Alert } from 'reactstrap';
-
-import { useAppSelector } from 'app/config/store';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Alert, Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { useAppDispatch, useAppSelector } from 'app/config/store';
+import { login } from 'app/shared/reducers/authentication';
 
 export const Home = () => {
-  const account = useAppSelector(state => state.authentication.account);
+  const dispatch = useAppDispatch();
+  const loginError = useAppSelector(state => state.authentication.loginError);
+  const isAuthenticated = useAppSelector(state => state.authentication.isAuthenticated);
+  const user = useAppSelector(state => state.authentication.account); // Assuming account contains user details including roles
+  const navigate = useNavigate();
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    dispatch(login(username, password, rememberMe));
+  };
+
+  useEffect(() => {
+    if (isAuthenticated && user) {
+      if (user.authorities.includes('ROLE_ADMIN')) {
+        navigate('/admin'); // Navigate to admin page
+      } else {
+        navigate('/dashboard'); // Navigate to user dashboard
+      }
+    }
+  }, [isAuthenticated, user, navigate]);
 
   return (
-    <Row>
-      <Col md="3" className="pad">
-        <span className="hipster rounded" />
-      </Col>
-      <Col md="9">
-        <h1 className="display-4">Welcome, Java Hipster!</h1>
-        <p className="lead">This is your homepage</p>
-        {account?.login ? (
-          <div>
-            <Alert color="success">You are logged in as user &quot;{account.login}&quot;.</Alert>
-          </div>
-        ) : (
-          <div>
-            <Alert color="warning">
-              If you want to
-              <span>&nbsp;</span>
-              <Link to="/login" className="alert-link">
-                sign in
-              </Link>
-              , you can try the default accounts:
-              <br />- Administrator (login=&quot;admin&quot; and password=&quot;admin&quot;) <br />- User (login=&quot;user&quot; and
-              password=&quot;user&quot;).
-            </Alert>
-
-            <Alert color="warning">
-              You don&apos;t have an account yet?&nbsp;
-              <Link to="/account/register" className="alert-link">
-                Register a new account
-              </Link>
-            </Alert>
-          </div>
-        )}
-        <p>If you have any question on JHipster:</p>
-
-        <ul>
-          <li>
-            <a href="https://www.jhipster.tech/" target="_blank" rel="noopener noreferrer">
-              JHipster homepage
-            </a>
-          </li>
-          <li>
-            <a href="https://stackoverflow.com/tags/jhipster/info" target="_blank" rel="noopener noreferrer">
-              JHipster on Stack Overflow
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank" rel="noopener noreferrer">
-              JHipster bug tracker
-            </a>
-          </li>
-          <li>
-            <a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">
-              JHipster public chat room
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/jhipster" target="_blank" rel="noopener noreferrer">
-              follow @jhipster on Twitter
-            </a>
-          </li>
-        </ul>
-
-        <p>
-          If you like JHipster, don&apos;t forget to give us a star on{' '}
-          <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">
-            GitHub
-          </a>
-          !
-        </p>
-      </Col>
-    </Row>
+    <div className="login-container">
+      <div className="login-box">
+        <h1>Welcome to ServoCRM</h1>
+        <p>Please log in to continue</p>
+        {loginError && <Alert color="danger">Login failed. Please check your credentials and try again.</Alert>}
+        <Form onSubmit={handleLogin}>
+          <FormGroup>
+            <Label for="username">Username</Label>
+            <Input
+              type="text"
+              id="username"
+              name="username"
+              value={username}
+              onChange={e => setUsername(e.target.value)}
+              required
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="password">Password</Label>
+            <Input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              required
+            />
+          </FormGroup>
+          <FormGroup check className="form-check">
+            <Label check>
+              <Input
+                type="checkbox"
+                id="rememberMe"
+                name="rememberMe"
+                checked={rememberMe}
+                onChange={e => setRememberMe(e.target.checked)}
+              />
+              Remember me
+            </Label>
+          </FormGroup>
+          <Button color="primary" type="submit">Login</Button>
+        </Form>
+        <Link to="/account/register" className="alert-link">Register a new account</Link>
+      </div>
+    </div>
   );
 };
 
