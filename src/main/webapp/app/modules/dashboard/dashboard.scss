@@ -64,3 +64,48 @@ p{
 .modal-body {
   background-color: white;
 }
+.sidebar {
+  width: 250px;
+  background: #2c3e50;
+  color: #ecf0f1;
+  padding: 15px;
+  position: fixed;
+  height: 77.5%;
+}
+
+.sidebar h2 {
+  color: #ecf0f1;
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px 0;
+  text-align: center;
+}
+
+.sidebar ul li a {
+  color: #ecf0f1;
+  text-decoration: none;
+  display: block;
+}
+
+.sidebar ul li a:hover {
+  background: #34495e;
+  border-radius: 4px;
+}
+
+.content {
+  margin-left: 250px;
+  padding: 20px;
+  flex-grow: 1;
+  background: #ecf0f1;
+}
+
+.lead-list .card {
+  margin-bottom: 20px;
+}

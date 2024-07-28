@@ -32,6 +32,11 @@ const Dashboard = Loadable({
   loading: () => loading,
 });
 
+const Admin1 = Loadable({
+  loader: () => import(/* webpackChunkName: "dashboard" */ 'app/modules/Admin/admin'),
+  loading: () => loading,
+});
+
 const AppRoutes = () => {
   return (
     <div className="view-routes">
