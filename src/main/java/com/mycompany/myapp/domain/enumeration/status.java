@@ -4,7 +4,6 @@ package com.mycompany.myapp.domain.enumeration;
  * The status enumeration.
  */
 public enum status {
-    NONE,
     ATTEMPTED_TO_CONTACT,
     CONTACT_IN_FUTURE,
     CONTACTED,

@@ -13,8 +13,8 @@ export const BrandIcon = props => (
 export const Brand = () => (
   <NavbarBrand tag={Link} to="/" className="brand-logo">
     <BrandIcon />
-    <span className="brand-title">Crm</span>
-    <span className="navbar-version">{VERSION.toLowerCase().startsWith('v') ? VERSION : `v${VERSION}`}</span>
+    <span className="brand-title">ServoCRM</span>
+    <span className="navbar-version">{VERSION.toLowerCase().startsWith('crm') ? VERSION : `crm${VERSION}`}</span>
   </NavbarBrand>
 );
 

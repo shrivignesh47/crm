@@ -1,6 +1,4 @@
 export enum status {
-  NONE = 'NONE',
-  
   ATTEMPTED_TO_CONTACT = 'ATTEMPTED_TO_CONTACT',
 
   CONTACT_IN_FUTURE = 'CONTACT_IN_FUTURE',

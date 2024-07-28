@@ -72,7 +72,8 @@ class LeadResourceIT {
 
     private static final rating DEFAULT_RATING = rating.ACCIQUED;
     private static final rating UPDATED_RATING = rating.ACTIVE;
-    private static final social DEFAULT_SOCIAL_MEDIA = social.NONE;
+
+    private static final social DEFAULT_SOCIAL_MEDIA = social.INSTAGRAM;
     private static final social UPDATED_SOCIAL_MEDIA = social.FACEBOOK;
 
     private static final String DEFAULT_MEDIA_HANDLE_ID = "AAAAAAAAAA";
@@ -128,30 +129,30 @@ class LeadResourceIT {
      */
     public static Lead createEntity() {
         Lead lead = new Lead()
-                .first_name(DEFAULT_FIRST_NAME)
-                .last_name(DEFAULT_LAST_NAME)
-                .company(DEFAULT_COMPANY)
-                .title(DEFAULT_TITLE)
-                .email(DEFAULT_EMAIL)
-                .fax(DEFAULT_FAX)
-                .website(DEFAULT_WEBSITE)
-                .lead_source(DEFAULT_LEAD_SOURCE)
-                .lead_status(DEFAULT_LEAD_STATUS)
-                .industry(DEFAULT_INDUSTRY)
-                .no_of_emp(DEFAULT_NO_OF_EMP)
-                .annual_revenue(DEFAULT_ANNUAL_REVENUE)
-                .rating(DEFAULT_RATING)
-                .social_media(DEFAULT_SOCIAL_MEDIA)
-                .media_handle_id(DEFAULT_MEDIA_HANDLE_ID)
-                .street(DEFAULT_STREET)
-                .city(DEFAULT_CITY)
-                .state(DEFAULT_STATE)
-                .zipcode(DEFAULT_ZIPCODE)
-                .country(DEFAULT_COUNTRY)
-                .description(DEFAULT_DESCRIPTION)
-                .lead_image(DEFAULT_LEAD_IMAGE)
-                .lead_imageContentType(DEFAULT_LEAD_IMAGE_CONTENT_TYPE)
-                .phone(DEFAULT_PHONE);
+            .first_name(DEFAULT_FIRST_NAME)
+            .last_name(DEFAULT_LAST_NAME)
+            .company(DEFAULT_COMPANY)
+            .title(DEFAULT_TITLE)
+            .email(DEFAULT_EMAIL)
+            .fax(DEFAULT_FAX)
+            .website(DEFAULT_WEBSITE)
+            .lead_source(DEFAULT_LEAD_SOURCE)
+            .lead_status(DEFAULT_LEAD_STATUS)
+            .industry(DEFAULT_INDUSTRY)
+            .no_of_emp(DEFAULT_NO_OF_EMP)
+            .annual_revenue(DEFAULT_ANNUAL_REVENUE)
+            .rating(DEFAULT_RATING)
+            .social_media(DEFAULT_SOCIAL_MEDIA)
+            .media_handle_id(DEFAULT_MEDIA_HANDLE_ID)
+            .street(DEFAULT_STREET)
+            .city(DEFAULT_CITY)
+            .state(DEFAULT_STATE)
+            .zipcode(DEFAULT_ZIPCODE)
+            .country(DEFAULT_COUNTRY)
+            .description(DEFAULT_DESCRIPTION)
+            .lead_image(DEFAULT_LEAD_IMAGE)
+            .lead_imageContentType(DEFAULT_LEAD_IMAGE_CONTENT_TYPE)
+            .phone(DEFAULT_PHONE);
         return lead;
     }
 
@@ -163,30 +164,30 @@ class LeadResourceIT {
      */
     public static Lead createUpdatedEntity() {
         Lead lead = new Lead()
-                .first_name(UPDATED_FIRST_NAME)
-                .last_name(UPDATED_LAST_NAME)
-                .company(UPDATED_COMPANY)
-                .title(UPDATED_TITLE)
-                .email(UPDATED_EMAIL)
-                .fax(UPDATED_FAX)
-                .website(UPDATED_WEBSITE)
-                .lead_source(UPDATED_LEAD_SOURCE)
-                .lead_status(UPDATED_LEAD_STATUS)
-                .industry(UPDATED_INDUSTRY)
-                .no_of_emp(UPDATED_NO_OF_EMP)
-                .annual_revenue(UPDATED_ANNUAL_REVENUE)
-                .rating(UPDATED_RATING)
-                .social_media(UPDATED_SOCIAL_MEDIA)
-                .media_handle_id(UPDATED_MEDIA_HANDLE_ID)
-                .street(UPDATED_STREET)
-                .city(UPDATED_CITY)
-                .state(UPDATED_STATE)
-                .zipcode(UPDATED_ZIPCODE)
-                .country(UPDATED_COUNTRY)
-                .description(UPDATED_DESCRIPTION)
-                .lead_image(UPDATED_LEAD_IMAGE)
-                .lead_imageContentType(UPDATED_LEAD_IMAGE_CONTENT_TYPE)
-                .phone(UPDATED_PHONE);
+            .first_name(UPDATED_FIRST_NAME)
+            .last_name(UPDATED_LAST_NAME)
+            .company(UPDATED_COMPANY)
+            .title(UPDATED_TITLE)
+            .email(UPDATED_EMAIL)
+            .fax(UPDATED_FAX)
+            .website(UPDATED_WEBSITE)
+            .lead_source(UPDATED_LEAD_SOURCE)
+            .lead_status(UPDATED_LEAD_STATUS)
+            .industry(UPDATED_INDUSTRY)
+            .no_of_emp(UPDATED_NO_OF_EMP)
+            .annual_revenue(UPDATED_ANNUAL_REVENUE)
+            .rating(UPDATED_RATING)
+            .social_media(UPDATED_SOCIAL_MEDIA)
+            .media_handle_id(UPDATED_MEDIA_HANDLE_ID)
+            .street(UPDATED_STREET)
+            .city(UPDATED_CITY)
+            .state(UPDATED_STATE)
+            .zipcode(UPDATED_ZIPCODE)
+            .country(UPDATED_COUNTRY)
+            .description(UPDATED_DESCRIPTION)
+            .lead_image(UPDATED_LEAD_IMAGE)
+            .lead_imageContentType(UPDATED_LEAD_IMAGE_CONTENT_TYPE)
+            .phone(UPDATED_PHONE);
         return lead;
     }
 
@@ -208,16 +209,16 @@ class LeadResourceIT {
         long databaseSizeBeforeCreate = getRepositoryCount();
         // Create the Lead
         var returnedLead = webTestClient
-                .post()
-                .uri(ENTITY_API_URL)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isCreated()
-                .expectBody(Lead.class)
-                .returnResult()
-                .getResponseBody();
+            .post()
+            .uri(ENTITY_API_URL)
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isCreated()
+            .expectBody(Lead.class)
+            .returnResult()
+            .getResponseBody();
 
         // Validate the Lead in the database
         assertIncrementedRepositoryCount(databaseSizeBeforeCreate);
@@ -235,13 +236,13 @@ class LeadResourceIT {
 
         // An entity with an existing ID cannot be created, so this API call must fail
         webTestClient
-                .post()
-                .uri(ENTITY_API_URL)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isBadRequest();
+            .post()
+            .uri(ENTITY_API_URL)
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
 
         // Validate the Lead in the database
         assertSameRepositoryCount(databaseSizeBeforeCreate);
@@ -256,13 +257,13 @@ class LeadResourceIT {
         // Create the Lead, which fails.
 
         webTestClient
-                .post()
-                .uri(ENTITY_API_URL)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isBadRequest();
+            .post()
+            .uri(ENTITY_API_URL)
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
 
         assertSameRepositoryCount(databaseSizeBeforeTest);
     }
@@ -276,13 +277,13 @@ class LeadResourceIT {
         // Create the Lead, which fails.
 
         webTestClient
-                .post()
-                .uri(ENTITY_API_URL)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isBadRequest();
+            .post()
+            .uri(ENTITY_API_URL)
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
 
         assertSameRepositoryCount(databaseSizeBeforeTest);
     }
@@ -296,13 +297,13 @@ class LeadResourceIT {
         // Create the Lead, which fails.
 
         webTestClient
-                .post()
-                .uri(ENTITY_API_URL)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isBadRequest();
+            .post()
+            .uri(ENTITY_API_URL)
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
 
         assertSameRepositoryCount(databaseSizeBeforeTest);
     }
@@ -316,13 +317,13 @@ class LeadResourceIT {
         // Create the Lead, which fails.
 
         webTestClient
-                .post()
-                .uri(ENTITY_API_URL)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isBadRequest();
+            .post()
+            .uri(ENTITY_API_URL)
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
 
         assertSameRepositoryCount(databaseSizeBeforeTest);
     }
@@ -336,13 +337,13 @@ class LeadResourceIT {
         // Create the Lead, which fails.
 
         webTestClient
-                .post()
-                .uri(ENTITY_API_URL)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isBadRequest();
+            .post()
+            .uri(ENTITY_API_URL)
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
 
         assertSameRepositoryCount(databaseSizeBeforeTest);
     }
@@ -356,13 +357,13 @@ class LeadResourceIT {
         // Create the Lead, which fails.
 
         webTestClient
-                .post()
-                .uri(ENTITY_API_URL)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isBadRequest();
+            .post()
+            .uri(ENTITY_API_URL)
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
 
         assertSameRepositoryCount(databaseSizeBeforeTest);
     }
@@ -376,13 +377,13 @@ class LeadResourceIT {
         // Create the Lead, which fails.
 
         webTestClient
-                .post()
-                .uri(ENTITY_API_URL)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isBadRequest();
+            .post()
+            .uri(ENTITY_API_URL)
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
 
         assertSameRepositoryCount(databaseSizeBeforeTest);
     }
@@ -396,13 +397,13 @@ class LeadResourceIT {
         // Create the Lead, which fails.
 
         webTestClient
-                .post()
-                .uri(ENTITY_API_URL)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isBadRequest();
+            .post()
+            .uri(ENTITY_API_URL)
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
 
         assertSameRepositoryCount(databaseSizeBeforeTest);
     }
@@ -416,13 +417,13 @@ class LeadResourceIT {
         // Create the Lead, which fails.
 
         webTestClient
-                .post()
-                .uri(ENTITY_API_URL)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isBadRequest();
+            .post()
+            .uri(ENTITY_API_URL)
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
 
         assertSameRepositoryCount(databaseSizeBeforeTest);
     }
@@ -436,13 +437,13 @@ class LeadResourceIT {
         // Create the Lead, which fails.
 
         webTestClient
-                .post()
-                .uri(ENTITY_API_URL)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isBadRequest();
+            .post()
+            .uri(ENTITY_API_URL)
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
 
         assertSameRepositoryCount(databaseSizeBeforeTest);
     }
@@ -456,13 +457,13 @@ class LeadResourceIT {
         // Create the Lead, which fails.
 
         webTestClient
-                .post()
-                .uri(ENTITY_API_URL)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isBadRequest();
+            .post()
+            .uri(ENTITY_API_URL)
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
 
         assertSameRepositoryCount(databaseSizeBeforeTest);
     }
@@ -476,13 +477,13 @@ class LeadResourceIT {
         // Create the Lead, which fails.
 
         webTestClient
-                .post()
-                .uri(ENTITY_API_URL)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isBadRequest();
+            .post()
+            .uri(ENTITY_API_URL)
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
 
         assertSameRepositoryCount(databaseSizeBeforeTest);
     }
@@ -496,13 +497,13 @@ class LeadResourceIT {
         // Create the Lead, which fails.
 
         webTestClient
-                .post()
-                .uri(ENTITY_API_URL)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isBadRequest();
+            .post()
+            .uri(ENTITY_API_URL)
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
 
         assertSameRepositoryCount(databaseSizeBeforeTest);
     }
@@ -516,13 +517,13 @@ class LeadResourceIT {
         // Create the Lead, which fails.
 
         webTestClient
-                .post()
-                .uri(ENTITY_API_URL)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isBadRequest();
+            .post()
+            .uri(ENTITY_API_URL)
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
 
         assertSameRepositoryCount(databaseSizeBeforeTest);
     }
@@ -536,13 +537,13 @@ class LeadResourceIT {
         // Create the Lead, which fails.
 
         webTestClient
-                .post()
-                .uri(ENTITY_API_URL)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isBadRequest();
+            .post()
+            .uri(ENTITY_API_URL)
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
 
         assertSameRepositoryCount(databaseSizeBeforeTest);
     }
@@ -556,13 +557,13 @@ class LeadResourceIT {
         // Create the Lead, which fails.
 
         webTestClient
-                .post()
-                .uri(ENTITY_API_URL)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isBadRequest();
+            .post()
+            .uri(ENTITY_API_URL)
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
 
         assertSameRepositoryCount(databaseSizeBeforeTest);
     }
@@ -576,13 +577,13 @@ class LeadResourceIT {
         // Create the Lead, which fails.
 
         webTestClient
-                .post()
-                .uri(ENTITY_API_URL)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isBadRequest();
+            .post()
+            .uri(ENTITY_API_URL)
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
 
         assertSameRepositoryCount(databaseSizeBeforeTest);
     }
@@ -594,65 +595,65 @@ class LeadResourceIT {
 
         // Get all the leadList
         webTestClient
-                .get()
-                .uri(ENTITY_API_URL + "?sort=id,desc")
-                .accept(MediaType.APPLICATION_JSON)
-                .exchange()
-                .expectStatus()
-                .isOk()
-                .expectHeader()
-                .contentType(MediaType.APPLICATION_JSON)
-                .expectBody()
-                .jsonPath("$.[*].id")
-                .value(hasItem(lead.getId()))
-                .jsonPath("$.[*].first_name")
-                .value(hasItem(DEFAULT_FIRST_NAME))
-                .jsonPath("$.[*].last_name")
-                .value(hasItem(DEFAULT_LAST_NAME))
-                .jsonPath("$.[*].company")
-                .value(hasItem(DEFAULT_COMPANY))
-                .jsonPath("$.[*].title")
-                .value(hasItem(DEFAULT_TITLE))
-                .jsonPath("$.[*].email")
-                .value(hasItem(DEFAULT_EMAIL))
-                .jsonPath("$.[*].fax")
-                .value(hasItem(DEFAULT_FAX))
-                .jsonPath("$.[*].website")
-                .value(hasItem(DEFAULT_WEBSITE))
-                .jsonPath("$.[*].lead_source")
-                .value(hasItem(DEFAULT_LEAD_SOURCE.toString()))
-                .jsonPath("$.[*].lead_status")
-                .value(hasItem(DEFAULT_LEAD_STATUS.toString()))
-                .jsonPath("$.[*].industry")
-                .value(hasItem(DEFAULT_INDUSTRY.toString()))
-                .jsonPath("$.[*].no_of_emp")
-                .value(hasItem(DEFAULT_NO_OF_EMP))
-                .jsonPath("$.[*].annual_revenue")
-                .value(hasItem(DEFAULT_ANNUAL_REVENUE.doubleValue()))
-                .jsonPath("$.[*].rating")
-                .value(hasItem(DEFAULT_RATING.toString()))
-                .jsonPath("$.[*].social_media")
-                .value(hasItem(DEFAULT_SOCIAL_MEDIA.toString()))
-                .jsonPath("$.[*].media_handle_id")
-                .value(hasItem(DEFAULT_MEDIA_HANDLE_ID))
-                .jsonPath("$.[*].street")
-                .value(hasItem(DEFAULT_STREET))
-                .jsonPath("$.[*].city")
-                .value(hasItem(DEFAULT_CITY))
-                .jsonPath("$.[*].state")
-                .value(hasItem(DEFAULT_STATE))
-                .jsonPath("$.[*].zipcode")
-                .value(hasItem(DEFAULT_ZIPCODE))
-                .jsonPath("$.[*].country")
-                .value(hasItem(DEFAULT_COUNTRY))
-                .jsonPath("$.[*].description")
-                .value(hasItem(DEFAULT_DESCRIPTION))
-                .jsonPath("$.[*].lead_imageContentType")
-                .value(hasItem(DEFAULT_LEAD_IMAGE_CONTENT_TYPE))
-                .jsonPath("$.[*].lead_image")
-                .value(hasItem(Base64.getEncoder().encodeToString(DEFAULT_LEAD_IMAGE)))
-                .jsonPath("$.[*].phone")
-                .value(hasItem(DEFAULT_PHONE));
+            .get()
+            .uri(ENTITY_API_URL + "?sort=id,desc")
+            .accept(MediaType.APPLICATION_JSON)
+            .exchange()
+            .expectStatus()
+            .isOk()
+            .expectHeader()
+            .contentType(MediaType.APPLICATION_JSON)
+            .expectBody()
+            .jsonPath("$.[*].id")
+            .value(hasItem(lead.getId()))
+            .jsonPath("$.[*].first_name")
+            .value(hasItem(DEFAULT_FIRST_NAME))
+            .jsonPath("$.[*].last_name")
+            .value(hasItem(DEFAULT_LAST_NAME))
+            .jsonPath("$.[*].company")
+            .value(hasItem(DEFAULT_COMPANY))
+            .jsonPath("$.[*].title")
+            .value(hasItem(DEFAULT_TITLE))
+            .jsonPath("$.[*].email")
+            .value(hasItem(DEFAULT_EMAIL))
+            .jsonPath("$.[*].fax")
+            .value(hasItem(DEFAULT_FAX))
+            .jsonPath("$.[*].website")
+            .value(hasItem(DEFAULT_WEBSITE))
+            .jsonPath("$.[*].lead_source")
+            .value(hasItem(DEFAULT_LEAD_SOURCE.toString()))
+            .jsonPath("$.[*].lead_status")
+            .value(hasItem(DEFAULT_LEAD_STATUS.toString()))
+            .jsonPath("$.[*].industry")
+            .value(hasItem(DEFAULT_INDUSTRY.toString()))
+            .jsonPath("$.[*].no_of_emp")
+            .value(hasItem(DEFAULT_NO_OF_EMP))
+            .jsonPath("$.[*].annual_revenue")
+            .value(hasItem(DEFAULT_ANNUAL_REVENUE.doubleValue()))
+            .jsonPath("$.[*].rating")
+            .value(hasItem(DEFAULT_RATING.toString()))
+            .jsonPath("$.[*].social_media")
+            .value(hasItem(DEFAULT_SOCIAL_MEDIA.toString()))
+            .jsonPath("$.[*].media_handle_id")
+            .value(hasItem(DEFAULT_MEDIA_HANDLE_ID))
+            .jsonPath("$.[*].street")
+            .value(hasItem(DEFAULT_STREET))
+            .jsonPath("$.[*].city")
+            .value(hasItem(DEFAULT_CITY))
+            .jsonPath("$.[*].state")
+            .value(hasItem(DEFAULT_STATE))
+            .jsonPath("$.[*].zipcode")
+            .value(hasItem(DEFAULT_ZIPCODE))
+            .jsonPath("$.[*].country")
+            .value(hasItem(DEFAULT_COUNTRY))
+            .jsonPath("$.[*].description")
+            .value(hasItem(DEFAULT_DESCRIPTION))
+            .jsonPath("$.[*].lead_imageContentType")
+            .value(hasItem(DEFAULT_LEAD_IMAGE_CONTENT_TYPE))
+            .jsonPath("$.[*].lead_image")
+            .value(hasItem(Base64.getEncoder().encodeToString(DEFAULT_LEAD_IMAGE)))
+            .jsonPath("$.[*].phone")
+            .value(hasItem(DEFAULT_PHONE));
     }
 
     @Test
@@ -662,77 +663,77 @@ class LeadResourceIT {
 
         // Get the lead
         webTestClient
-                .get()
-                .uri(ENTITY_API_URL_ID, lead.getId())
-                .accept(MediaType.APPLICATION_JSON)
-                .exchange()
-                .expectStatus()
-                .isOk()
-                .expectHeader()
-                .contentType(MediaType.APPLICATION_JSON)
-                .expectBody()
-                .jsonPath("$.id")
-                .value(is(lead.getId()))
-                .jsonPath("$.first_name")
-                .value(is(DEFAULT_FIRST_NAME))
-                .jsonPath("$.last_name")
-                .value(is(DEFAULT_LAST_NAME))
-                .jsonPath("$.company")
-                .value(is(DEFAULT_COMPANY))
-                .jsonPath("$.title")
-                .value(is(DEFAULT_TITLE))
-                .jsonPath("$.email")
-                .value(is(DEFAULT_EMAIL))
-                .jsonPath("$.fax")
-                .value(is(DEFAULT_FAX))
-                .jsonPath("$.website")
-                .value(is(DEFAULT_WEBSITE))
-                .jsonPath("$.lead_source")
-                .value(is(DEFAULT_LEAD_SOURCE.toString()))
-                .jsonPath("$.lead_status")
-                .value(is(DEFAULT_LEAD_STATUS.toString()))
-                .jsonPath("$.industry")
-                .value(is(DEFAULT_INDUSTRY.toString()))
-                .jsonPath("$.no_of_emp")
-                .value(is(DEFAULT_NO_OF_EMP))
-                .jsonPath("$.annual_revenue")
-                .value(is(DEFAULT_ANNUAL_REVENUE.doubleValue()))
-                .jsonPath("$.rating")
-                .value(is(DEFAULT_RATING.toString()))
-                .jsonPath("$.social_media")
-                .value(is(DEFAULT_SOCIAL_MEDIA.toString()))
-                .jsonPath("$.media_handle_id")
-                .value(is(DEFAULT_MEDIA_HANDLE_ID))
-                .jsonPath("$.street")
-                .value(is(DEFAULT_STREET))
-                .jsonPath("$.city")
-                .value(is(DEFAULT_CITY))
-                .jsonPath("$.state")
-                .value(is(DEFAULT_STATE))
-                .jsonPath("$.zipcode")
-                .value(is(DEFAULT_ZIPCODE))
-                .jsonPath("$.country")
-                .value(is(DEFAULT_COUNTRY))
-                .jsonPath("$.description")
-                .value(is(DEFAULT_DESCRIPTION))
-                .jsonPath("$.lead_imageContentType")
-                .value(is(DEFAULT_LEAD_IMAGE_CONTENT_TYPE))
-                .jsonPath("$.lead_image")
-                .value(is(Base64.getEncoder().encodeToString(DEFAULT_LEAD_IMAGE)))
-                .jsonPath("$.phone")
-                .value(is(DEFAULT_PHONE));
+            .get()
+            .uri(ENTITY_API_URL_ID, lead.getId())
+            .accept(MediaType.APPLICATION_JSON)
+            .exchange()
+            .expectStatus()
+            .isOk()
+            .expectHeader()
+            .contentType(MediaType.APPLICATION_JSON)
+            .expectBody()
+            .jsonPath("$.id")
+            .value(is(lead.getId()))
+            .jsonPath("$.first_name")
+            .value(is(DEFAULT_FIRST_NAME))
+            .jsonPath("$.last_name")
+            .value(is(DEFAULT_LAST_NAME))
+            .jsonPath("$.company")
+            .value(is(DEFAULT_COMPANY))
+            .jsonPath("$.title")
+            .value(is(DEFAULT_TITLE))
+            .jsonPath("$.email")
+            .value(is(DEFAULT_EMAIL))
+            .jsonPath("$.fax")
+            .value(is(DEFAULT_FAX))
+            .jsonPath("$.website")
+            .value(is(DEFAULT_WEBSITE))
+            .jsonPath("$.lead_source")
+            .value(is(DEFAULT_LEAD_SOURCE.toString()))
+            .jsonPath("$.lead_status")
+            .value(is(DEFAULT_LEAD_STATUS.toString()))
+            .jsonPath("$.industry")
+            .value(is(DEFAULT_INDUSTRY.toString()))
+            .jsonPath("$.no_of_emp")
+            .value(is(DEFAULT_NO_OF_EMP))
+            .jsonPath("$.annual_revenue")
+            .value(is(DEFAULT_ANNUAL_REVENUE.doubleValue()))
+            .jsonPath("$.rating")
+            .value(is(DEFAULT_RATING.toString()))
+            .jsonPath("$.social_media")
+            .value(is(DEFAULT_SOCIAL_MEDIA.toString()))
+            .jsonPath("$.media_handle_id")
+            .value(is(DEFAULT_MEDIA_HANDLE_ID))
+            .jsonPath("$.street")
+            .value(is(DEFAULT_STREET))
+            .jsonPath("$.city")
+            .value(is(DEFAULT_CITY))
+            .jsonPath("$.state")
+            .value(is(DEFAULT_STATE))
+            .jsonPath("$.zipcode")
+            .value(is(DEFAULT_ZIPCODE))
+            .jsonPath("$.country")
+            .value(is(DEFAULT_COUNTRY))
+            .jsonPath("$.description")
+            .value(is(DEFAULT_DESCRIPTION))
+            .jsonPath("$.lead_imageContentType")
+            .value(is(DEFAULT_LEAD_IMAGE_CONTENT_TYPE))
+            .jsonPath("$.lead_image")
+            .value(is(Base64.getEncoder().encodeToString(DEFAULT_LEAD_IMAGE)))
+            .jsonPath("$.phone")
+            .value(is(DEFAULT_PHONE));
     }
 
     @Test
     void getNonExistingLead() {
         // Get the lead
         webTestClient
-                .get()
-                .uri(ENTITY_API_URL_ID, Long.MAX_VALUE)
-                .accept(MediaType.APPLICATION_PROBLEM_JSON)
-                .exchange()
-                .expectStatus()
-                .isNotFound();
+            .get()
+            .uri(ENTITY_API_URL_ID, Long.MAX_VALUE)
+            .accept(MediaType.APPLICATION_PROBLEM_JSON)
+            .exchange()
+            .expectStatus()
+            .isNotFound();
     }
 
     @Test
@@ -745,39 +746,39 @@ class LeadResourceIT {
         // Update the lead
         Lead updatedLead = leadRepository.findById(lead.getId()).block();
         updatedLead
-                .first_name(UPDATED_FIRST_NAME)
-                .last_name(UPDATED_LAST_NAME)
-                .company(UPDATED_COMPANY)
-                .title(UPDATED_TITLE)
-                .email(UPDATED_EMAIL)
-                .fax(UPDATED_FAX)
-                .website(UPDATED_WEBSITE)
-                .lead_source(UPDATED_LEAD_SOURCE)
-                .lead_status(UPDATED_LEAD_STATUS)
-                .industry(UPDATED_INDUSTRY)
-                .no_of_emp(UPDATED_NO_OF_EMP)
-                .annual_revenue(UPDATED_ANNUAL_REVENUE)
-                .rating(UPDATED_RATING)
-                .social_media(UPDATED_SOCIAL_MEDIA)
-                .media_handle_id(UPDATED_MEDIA_HANDLE_ID)
-                .street(UPDATED_STREET)
-                .city(UPDATED_CITY)
-                .state(UPDATED_STATE)
-                .zipcode(UPDATED_ZIPCODE)
-                .country(UPDATED_COUNTRY)
-                .description(UPDATED_DESCRIPTION)
-                .lead_image(UPDATED_LEAD_IMAGE)
-                .lead_imageContentType(UPDATED_LEAD_IMAGE_CONTENT_TYPE)
-                .phone(UPDATED_PHONE);
+            .first_name(UPDATED_FIRST_NAME)
+            .last_name(UPDATED_LAST_NAME)
+            .company(UPDATED_COMPANY)
+            .title(UPDATED_TITLE)
+            .email(UPDATED_EMAIL)
+            .fax(UPDATED_FAX)
+            .website(UPDATED_WEBSITE)
+            .lead_source(UPDATED_LEAD_SOURCE)
+            .lead_status(UPDATED_LEAD_STATUS)
+            .industry(UPDATED_INDUSTRY)
+            .no_of_emp(UPDATED_NO_OF_EMP)
+            .annual_revenue(UPDATED_ANNUAL_REVENUE)
+            .rating(UPDATED_RATING)
+            .social_media(UPDATED_SOCIAL_MEDIA)
+            .media_handle_id(UPDATED_MEDIA_HANDLE_ID)
+            .street(UPDATED_STREET)
+            .city(UPDATED_CITY)
+            .state(UPDATED_STATE)
+            .zipcode(UPDATED_ZIPCODE)
+            .country(UPDATED_COUNTRY)
+            .description(UPDATED_DESCRIPTION)
+            .lead_image(UPDATED_LEAD_IMAGE)
+            .lead_imageContentType(UPDATED_LEAD_IMAGE_CONTENT_TYPE)
+            .phone(UPDATED_PHONE);
 
         webTestClient
-                .put()
-                .uri(ENTITY_API_URL_ID, updatedLead.getId())
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(updatedLead))
-                .exchange()
-                .expectStatus()
-                .isOk();
+            .put()
+            .uri(ENTITY_API_URL_ID, updatedLead.getId())
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(updatedLead))
+            .exchange()
+            .expectStatus()
+            .isOk();
 
         // Validate the Lead in the database
         assertSameRepositoryCount(databaseSizeBeforeUpdate);
@@ -791,13 +792,13 @@ class LeadResourceIT {
 
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
         webTestClient
-                .put()
-                .uri(ENTITY_API_URL_ID, lead.getId())
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isBadRequest();
+            .put()
+            .uri(ENTITY_API_URL_ID, lead.getId())
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
 
         // Validate the Lead in the database
         assertSameRepositoryCount(databaseSizeBeforeUpdate);
@@ -810,13 +811,13 @@ class LeadResourceIT {
 
         // If url ID doesn't match entity ID, it will throw BadRequestAlertException
         webTestClient
-                .put()
-                .uri(ENTITY_API_URL_ID, UUID.randomUUID().toString())
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isBadRequest();
+            .put()
+            .uri(ENTITY_API_URL_ID, UUID.randomUUID().toString())
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
 
         // Validate the Lead in the database
         assertSameRepositoryCount(databaseSizeBeforeUpdate);
@@ -829,13 +830,13 @@ class LeadResourceIT {
 
         // If url ID doesn't match entity ID, it will throw BadRequestAlertException
         webTestClient
-                .put()
-                .uri(ENTITY_API_URL)
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isEqualTo(405);
+            .put()
+            .uri(ENTITY_API_URL)
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isEqualTo(405);
 
         // Validate the Lead in the database
         assertSameRepositoryCount(databaseSizeBeforeUpdate);
@@ -853,27 +854,27 @@ class LeadResourceIT {
         partialUpdatedLead.setId(lead.getId());
 
         partialUpdatedLead
-                .company(UPDATED_COMPANY)
-                .title(UPDATED_TITLE)
-                .email(UPDATED_EMAIL)
-                .fax(UPDATED_FAX)
-                .industry(UPDATED_INDUSTRY)
-                .annual_revenue(UPDATED_ANNUAL_REVENUE)
-                .social_media(UPDATED_SOCIAL_MEDIA)
-                .media_handle_id(UPDATED_MEDIA_HANDLE_ID)
-                .city(UPDATED_CITY)
-                .country(UPDATED_COUNTRY)
-                .description(UPDATED_DESCRIPTION)
-                .phone(UPDATED_PHONE);
+            .company(UPDATED_COMPANY)
+            .title(UPDATED_TITLE)
+            .email(UPDATED_EMAIL)
+            .fax(UPDATED_FAX)
+            .industry(UPDATED_INDUSTRY)
+            .annual_revenue(UPDATED_ANNUAL_REVENUE)
+            .social_media(UPDATED_SOCIAL_MEDIA)
+            .media_handle_id(UPDATED_MEDIA_HANDLE_ID)
+            .city(UPDATED_CITY)
+            .country(UPDATED_COUNTRY)
+            .description(UPDATED_DESCRIPTION)
+            .phone(UPDATED_PHONE);
 
         webTestClient
-                .patch()
-                .uri(ENTITY_API_URL_ID, partialUpdatedLead.getId())
-                .contentType(MediaType.valueOf("application/merge-patch+json"))
-                .bodyValue(om.writeValueAsBytes(partialUpdatedLead))
-                .exchange()
-                .expectStatus()
-                .isOk();
+            .patch()
+            .uri(ENTITY_API_URL_ID, partialUpdatedLead.getId())
+            .contentType(MediaType.valueOf("application/merge-patch+json"))
+            .bodyValue(om.writeValueAsBytes(partialUpdatedLead))
+            .exchange()
+            .expectStatus()
+            .isOk();
 
         // Validate the Lead in the database
 
@@ -893,39 +894,39 @@ class LeadResourceIT {
         partialUpdatedLead.setId(lead.getId());
 
         partialUpdatedLead
-                .first_name(UPDATED_FIRST_NAME)
-                .last_name(UPDATED_LAST_NAME)
-                .company(UPDATED_COMPANY)
-                .title(UPDATED_TITLE)
-                .email(UPDATED_EMAIL)
-                .fax(UPDATED_FAX)
-                .website(UPDATED_WEBSITE)
-                .lead_source(UPDATED_LEAD_SOURCE)
-                .lead_status(UPDATED_LEAD_STATUS)
-                .industry(UPDATED_INDUSTRY)
-                .no_of_emp(UPDATED_NO_OF_EMP)
-                .annual_revenue(UPDATED_ANNUAL_REVENUE)
-                .rating(UPDATED_RATING)
-                .social_media(UPDATED_SOCIAL_MEDIA)
-                .media_handle_id(UPDATED_MEDIA_HANDLE_ID)
-                .street(UPDATED_STREET)
-                .city(UPDATED_CITY)
-                .state(UPDATED_STATE)
-                .zipcode(UPDATED_ZIPCODE)
-                .country(UPDATED_COUNTRY)
-                .description(UPDATED_DESCRIPTION)
-                .lead_image(UPDATED_LEAD_IMAGE)
-                .lead_imageContentType(UPDATED_LEAD_IMAGE_CONTENT_TYPE)
-                .phone(UPDATED_PHONE);
+            .first_name(UPDATED_FIRST_NAME)
+            .last_name(UPDATED_LAST_NAME)
+            .company(UPDATED_COMPANY)
+            .title(UPDATED_TITLE)
+            .email(UPDATED_EMAIL)
+            .fax(UPDATED_FAX)
+            .website(UPDATED_WEBSITE)
+            .lead_source(UPDATED_LEAD_SOURCE)
+            .lead_status(UPDATED_LEAD_STATUS)
+            .industry(UPDATED_INDUSTRY)
+            .no_of_emp(UPDATED_NO_OF_EMP)
+            .annual_revenue(UPDATED_ANNUAL_REVENUE)
+            .rating(UPDATED_RATING)
+            .social_media(UPDATED_SOCIAL_MEDIA)
+            .media_handle_id(UPDATED_MEDIA_HANDLE_ID)
+            .street(UPDATED_STREET)
+            .city(UPDATED_CITY)
+            .state(UPDATED_STATE)
+            .zipcode(UPDATED_ZIPCODE)
+            .country(UPDATED_COUNTRY)
+            .description(UPDATED_DESCRIPTION)
+            .lead_image(UPDATED_LEAD_IMAGE)
+            .lead_imageContentType(UPDATED_LEAD_IMAGE_CONTENT_TYPE)
+            .phone(UPDATED_PHONE);
 
         webTestClient
-                .patch()
-                .uri(ENTITY_API_URL_ID, partialUpdatedLead.getId())
-                .contentType(MediaType.valueOf("application/merge-patch+json"))
-                .bodyValue(om.writeValueAsBytes(partialUpdatedLead))
-                .exchange()
-                .expectStatus()
-                .isOk();
+            .patch()
+            .uri(ENTITY_API_URL_ID, partialUpdatedLead.getId())
+            .contentType(MediaType.valueOf("application/merge-patch+json"))
+            .bodyValue(om.writeValueAsBytes(partialUpdatedLead))
+            .exchange()
+            .expectStatus()
+            .isOk();
 
         // Validate the Lead in the database
 
@@ -940,13 +941,13 @@ class LeadResourceIT {
 
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
         webTestClient
-                .patch()
-                .uri(ENTITY_API_URL_ID, lead.getId())
-                .contentType(MediaType.valueOf("application/merge-patch+json"))
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isBadRequest();
+            .patch()
+            .uri(ENTITY_API_URL_ID, lead.getId())
+            .contentType(MediaType.valueOf("application/merge-patch+json"))
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
 
         // Validate the Lead in the database
         assertSameRepositoryCount(databaseSizeBeforeUpdate);
@@ -959,13 +960,13 @@ class LeadResourceIT {
 
         // If url ID doesn't match entity ID, it will throw BadRequestAlertException
         webTestClient
-                .patch()
-                .uri(ENTITY_API_URL_ID, UUID.randomUUID().toString())
-                .contentType(MediaType.valueOf("application/merge-patch+json"))
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isBadRequest();
+            .patch()
+            .uri(ENTITY_API_URL_ID, UUID.randomUUID().toString())
+            .contentType(MediaType.valueOf("application/merge-patch+json"))
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
 
         // Validate the Lead in the database
         assertSameRepositoryCount(databaseSizeBeforeUpdate);
@@ -978,13 +979,13 @@ class LeadResourceIT {
 
         // If url ID doesn't match entity ID, it will throw BadRequestAlertException
         webTestClient
-                .patch()
-                .uri(ENTITY_API_URL)
-                .contentType(MediaType.valueOf("application/merge-patch+json"))
-                .bodyValue(om.writeValueAsBytes(lead))
-                .exchange()
-                .expectStatus()
-                .isEqualTo(405);
+            .patch()
+            .uri(ENTITY_API_URL)
+            .contentType(MediaType.valueOf("application/merge-patch+json"))
+            .bodyValue(om.writeValueAsBytes(lead))
+            .exchange()
+            .expectStatus()
+            .isEqualTo(405);
 
         // Validate the Lead in the database
         assertSameRepositoryCount(databaseSizeBeforeUpdate);
@@ -999,12 +1000,12 @@ class LeadResourceIT {
 
         // Delete the lead
         webTestClient
-                .delete()
-                .uri(ENTITY_API_URL_ID, lead.getId())
-                .accept(MediaType.APPLICATION_JSON)
-                .exchange()
-                .expectStatus()
-                .isNoContent();
+            .delete()
+            .uri(ENTITY_API_URL_ID, lead.getId())
+            .accept(MediaType.APPLICATION_JSON)
+            .exchange()
+            .expectStatus()
+            .isNoContent();
 
         // Validate the database contains one less item
         assertDecrementedRepositoryCount(databaseSizeBeforeDelete);

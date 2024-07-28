@@ -1,4 +1,4 @@
-.login-container {
+.register-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,7 +6,7 @@
   background-color: #b0d0ff;
   padding: 20px;
 
-  .login-box {
+  .register-box {
     background-color: #ffffff;
     border-radius: 0.5rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -17,7 +17,7 @@
     width: 100%;
     max-width: 900px;
 
-    .login-form {
+    .register-form {
       padding: 2rem;
       flex: 1;
 
@@ -33,7 +33,7 @@
       }
     }
 
-    .login-image {
+    .register-image {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -46,10 +46,4 @@
       }
     }
   }
-}
-
-.form-check .form-check-input {
-  float: left;
-  background-color: rgb(158, 216, 254);
-  margin-left: -1.5em;
 }

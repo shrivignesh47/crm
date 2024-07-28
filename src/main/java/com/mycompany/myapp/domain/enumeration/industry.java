@@ -4,7 +4,6 @@ package com.mycompany.myapp.domain.enumeration;
  * The industry enumeration.
  */
 public enum industry {
-    NONE,
     ASP,
     DATA_TELECOM,
     ERP,

@@ -33,8 +33,8 @@ const Dashboard = () => {
         <ul className="lead-list">
           {leads.map((lead) => (
             <li key={lead.id}>
-              <h2>{lead.name}</h2> {/* Replace 'name' with actual field */}
-              <p>{lead.description}</p> {/* Replace 'description' with actual field */}
+              <h2>{lead.firstname}</h2> 
+              <p>{lead.description}</p> 
             </li>
           ))}
         </ul>

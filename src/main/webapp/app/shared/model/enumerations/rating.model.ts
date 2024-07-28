@@ -1,6 +1,4 @@
 export enum rating {
-  NONE = 'NONE',
-  
   ACCIQUED = 'ACCIQUED',
 
   ACTIVE = 'ACTIVE',

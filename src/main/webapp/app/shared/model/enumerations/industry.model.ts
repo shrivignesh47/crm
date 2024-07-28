@@ -1,6 +1,4 @@
 export enum industry {
-  NONE = 'NONE',
-  
   ASP = 'ASP',
 
   DATA_TELECOM = 'DATA_TELECOM',
