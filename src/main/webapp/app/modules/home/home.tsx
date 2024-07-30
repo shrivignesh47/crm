@@ -9,7 +9,7 @@ export const Home = () => {
   const dispatch = useAppDispatch();
   const loginError = useAppSelector(state => state.authentication.loginError);
   const isAuthenticated = useAppSelector(state => state.authentication.isAuthenticated);
-  const user = useAppSelector(state => state.authentication.account); // Assuming account contains user details including roles
+  const user = useAppSelector(state => state.authentication.account); 
   const navigate = useNavigate();
 
   const [username, setUsername] = useState('');

@@ -12,7 +12,7 @@ import Docs from './docs/docs';
 const AdministrationRoutes = () => (
   <div>
     <ErrorBoundaryRoutes>
-      <Route path='/'element={<UserManagement/>}
+      <Route path='/*'element={<UserManagement/>}
       <Route path="user-management/*" element={<UserManagement />} />
       <Route path="health" element={<Health />} />
       <Route path="metrics" element={<Metrics />} />

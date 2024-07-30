@@ -278,8 +278,8 @@ const Dashboard = () => {
       <div className="sidebar">
         <h2>CRM Dashboard</h2>
         <ul>
-          <li><a href="#dashboard">Dashboard</a></li>
-          <li><a href="#leads">Leads</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/lead">Leads</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#analytics">Analytics</a></li>
           <li><a href="#settings">Settings</a></li>
