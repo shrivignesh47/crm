@@ -9,5 +9,5 @@ public enum rating {
     ACTIVE,
     MARKET_FAILED,
     PROJECT_CANCELLED,
-    SHUT_DOWN,
+    SHUT_DOWN, ACCIQUED,
 }
