@@ -25,8 +25,10 @@ a {
 
 .app-container {
   box-sizing: border-box;
+  background-color: red;
   .view-container {
     width: 100%;
+    background-color: red;
     height: calc(50% - 40px);
     overflow-y: auto;
     overflow-x: hidden;
@@ -250,7 +252,7 @@ Generic styles
 @include voffset('150');
 
 .readonly {
-  background-color: #eee;
+  background-color: #ba2121;
   opacity: 1;
 }
 
@@ -315,5 +317,6 @@ http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
 
 /* jhipster-needle-scss-add-main JHipster will add new css style */
 .mb-3{
+  
   color: #333333;
 }

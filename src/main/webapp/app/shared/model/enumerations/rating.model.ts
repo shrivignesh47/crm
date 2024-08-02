@@ -1,5 +1,7 @@
 export enum rating {
-  ACCIQUED = 'ACCIQUED',
+  NONE = 'NONE',
+
+  ACQUIRED = 'ACQUIRED',
 
   ACTIVE = 'ACTIVE',
 
@@ -7,5 +9,5 @@ export enum rating {
 
   PROJECT_CANCELLED = 'PROJECT_CANCELLED',
 
-  SHUTDOWN = 'SHUTDOWN',
+  SHUT_DOWN = 'SHUT_DOWN',
 }

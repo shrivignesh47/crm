@@ -1,0 +1,124 @@
+.lead-update-container {
+  width: 217.9vh;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #2c3e50;
+  background: #ecf0f1;
+  border-radius: 1px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styles */
+.lead-update-header {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 300;
+}
+
+/* Grid container */
+.lead-update-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Full width item */
+.lead-update-full-width {
+  grid-column: span 2;
+}
+
+/* Form field styles */
+.lead-update-form-group {
+  margin-bottom: 20px;
+}
+
+.lead-update-label {
+  font-weight: 600;
+  color: #34495e;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.lead-update-input,
+.lead-update-select,
+.lead-update-textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background: #ecf0f1;
+  color: #2c3e50;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.lead-update-input:focus,
+.lead-update-select:focus,
+.lead-update-textarea:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+/* Button styles */
+.lead-update-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.lead-update-button {
+  font-size: 16px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.lead-update-cancel-button {
+  background-color: #95a5a6;
+  color: white;
+}
+
+.lead-update-cancel-button:hover {
+  background-color: #7f8c8d;
+}
+
+.lead-update-save-button {
+  background-color: #2980b9;
+  color: white;
+}
+
+.lead-update-save-button:hover {
+  background-color: #1f639d;
+}
+
+/* Loading text styles */
+.lead-update-loading {
+  text-align: center;
+  color: #3498db;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .lead-update-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lead-update-header {
+    font-size: 22px;
+  }
+}
+
+.view-routes {
+  width: 98.1vw;
+}

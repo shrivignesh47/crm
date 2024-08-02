@@ -1,0 +1,126 @@
+{
+  "annotations": {
+    "changelogDate": "20240801104900"
+  },
+  "dto": "no",
+  "fields": [
+    {
+      "fieldName": "account_owner",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "rating",
+      "fieldType": "rating",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "NONE,ACQUIRED,ACTIVE,MARKET_FAILED,PROJECT_CANCELLED,SHUT_DOWN"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "account_site",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "fax",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "website",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "account_number",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "ticket_Symbol",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "account_type",
+      "fieldType": "type",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "NONE,ANALYST,COMPETITOR,CUSTOMER,DISTRIBUTOR,INTEGRATOR,INVESTER,OTHER,PARTNER,PRESS,RESELLER,SUPPLIER,VENDOR"
+    },
+    {
+      "fieldName": "ownership",
+      "fieldType": "ownership",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "NONE,OTHER,PRIVATE,PUBLIC,SUBSIDIARY,PARTNERSHIP,GOVERNMENT,PRIVATELY_HELD,PUBLIC_COMPNAY"
+    },
+    {
+      "fieldName": "billing_street",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "billing_city",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "billing_state",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "billing_code",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "billing_country",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "shipping_street",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "shipping_city",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "shipping_state",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "shipping_code",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "shipping_country",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "employees",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "sic_code",
+      "fieldType": "Long",
+      "fieldValidateRules": []
+    }
+  ],
+  "name": "Accounts",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

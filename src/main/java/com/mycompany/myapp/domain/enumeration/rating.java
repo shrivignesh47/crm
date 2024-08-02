@@ -4,9 +4,10 @@ package com.mycompany.myapp.domain.enumeration;
  * The rating enumeration.
  */
 public enum rating {
-    ACCIQUED,
+    NONE,
+    ACQUIRED,
     ACTIVE,
     MARKET_FAILED,
     PROJECT_CANCELLED,
-    SHUTDOWN,
+    SHUT_DOWN,
 }
