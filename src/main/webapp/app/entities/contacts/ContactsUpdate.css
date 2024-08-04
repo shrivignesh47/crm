@@ -1,0 +1,120 @@
+/* General styles */
+.contacts-update-container {
+    width: 218.4vh;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #2c3e50;
+    background: #ecf0f1;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contacts-update-header {
+    color: #ff4000;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 300;
+  }
+  
+  .contacts-update-section-header {
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #34495e;
+  }
+  
+  .contacts-update-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .contacts-update-field {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background: #ecf0f1;
+    color: #2c3e50;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .contacts-update-full-width {
+    grid-column: span 2;
+  }
+  
+  .contacts-update-field:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  
+  /* Button styles */
+  .contacts-update-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 78px;
+  }
+  
+  .contacts-update-button {
+    font-size: 16px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contacts-update-cancel-button {
+    background-color: #95a5a6;
+    color: white;
+  }
+  
+  .contacts-update-cancel-button:hover {
+    background-color: #7f8c8d;
+  }
+  
+  .contacts-update-save-button {
+    background-color: #2980b9;
+    color: white;
+  }
+  
+  .contacts-update-save-button:hover {
+    background-color: #1f639d;
+  }
+  
+  .contacts-update-loading {
+    text-align: center;
+    color: #3498db;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .contacts-update-form {
+      grid-template-columns: 1fr;
+    }
+  
+    .contacts-update-header {
+      font-size: 22px;
+    }
+    .contacts-update-container {
+        width: 51vh;
+        margin: 0 auto;
+        padding: 40px 20px;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color: #2c3e50;
+        background: #ecf0f1;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+    
+    
+  }

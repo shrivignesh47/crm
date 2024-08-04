@@ -1,51 +1,39 @@
+/* General styles */
 .lead-update-container {
-  width: 217.9vh;
+  width: 218.4vh;
   margin: 0 auto;
   padding: 40px 20px;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #2c3e50;
   background: #ecf0f1;
-  border-radius: 1px;
+  border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Header styles */
 .lead-update-header {
-  color: #2c3e50;
+  color: #ff4000;
   text-align: center;
   margin-bottom: 30px;
   font-size: 28px;
   font-weight: 300;
 }
 
-/* Grid container */
-.lead-update-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+.lead-update-section-header {
+  font-size: 22px;
+  font-weight: 400;
   margin-bottom: 20px;
-}
-
-/* Full width item */
-.lead-update-full-width {
-  grid-column: span 2;
-}
-
-/* Form field styles */
-.lead-update-form-group {
-  margin-bottom: 20px;
-}
-
-.lead-update-label {
-  font-weight: 600;
   color: #34495e;
-  display: block;
-  margin-bottom: 8px;
 }
 
-.lead-update-input,
-.lead-update-select,
-.lead-update-textarea {
+
+.lead-update-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.lead-update-field {
   width: 100%;
   padding: 12px;
   margin-top: 5px;
@@ -58,9 +46,11 @@
   transition: border-color 0.3s ease;
 }
 
-.lead-update-input:focus,
-.lead-update-select:focus,
-.lead-update-textarea:focus {
+.lead-update-full-width {
+  grid-column: span 2;
+}
+
+.lead-update-field:focus {
   border-color: #3498db;
   outline: none;
 }
@@ -70,7 +60,7 @@
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: 78px;
 }
 
 .lead-update-button {
@@ -100,7 +90,7 @@
   background-color: #1f639d;
 }
 
-/* Loading text styles */
+
 .lead-update-loading {
   text-align: center;
   color: #3498db;
@@ -110,15 +100,29 @@
 
 /* Responsive styles */
 @media (max-width: 768px) {
-  .lead-update-grid {
+  .lead-update-form {
     grid-template-columns: 1fr;
   }
 
   .lead-update-header {
     font-size: 22px;
   }
-}
+  .lead-update-container {
+    width: 51vh;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #2c3e50;
+    background: #ecf0f1;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  .lead-update-form {
+    display: block;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 20px;
+  }
+  
 
-.view-routes {
-  width: 98.1vw;
 }
