@@ -1,0 +1,77 @@
+{
+  "annotations": {
+    "changelogDate": "20240805074938"
+  },
+  "dto": "no",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "location",
+      "fieldType": "location",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ONLINE,OFFLINE"
+    },
+    {
+      "fieldName": "offline_location",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "current_time",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "from",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "to",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "participants",
+      "fieldType": "participants",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "OFFLINE,CONTACTS,LEAD"
+    }
+  ],
+  "name": "Meeting",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "meeting",
+      "relationshipName": "user",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": ["required"]
+    },
+    {
+      "otherEntityField": "first_name",
+      "otherEntityName": "contacts",
+      "otherEntityRelationshipName": "meeting",
+      "relationshipName": "contacts",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "email",
+      "otherEntityName": "lead",
+      "otherEntityRelationshipName": "meeting",
+      "relationshipName": "lead",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

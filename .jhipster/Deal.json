@@ -1,0 +1,66 @@
+{
+  "annotations": {
+    "changelogDate": "20240805091132"
+  },
+  "dto": "no",
+  "fields": [
+    {
+      "fieldName": "deal_name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "closing_date",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "probability",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "next_Step",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "expected_revenue",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "campaign_source",
+      "fieldType": "String",
+      "fieldValidateRules": []
+    },
+    {
+      "fieldName": "description_information",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stage",
+      "fieldType": "stage",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "QUALIFICATION,NEED_ANALYSIS,VALUE_PROPOSTITON,IDENTIFY_DECISION_MAKERS,PROPOSAL,PRICE_QUOTE,NEGOTIATION,REVIEW,CLOSED_WON,CLOSED_LOST,CLOSED_LOST_TO_COMPETITION"
+    }
+  ],
+  "name": "Deal",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "first_name",
+      "otherEntityName": "contacts",
+      "otherEntityRelationshipName": "deal",
+      "relationshipName": "contacts",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": ["required"]
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}
